@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sai Jewelers | साईं ज्वैलर्स — Choose Language</title>
+<meta name="description" content="Sai Jewelers, Sikar — Handmade gold &amp; silver jewelry. Choose your language / भाषा चुनें">
+<link rel="icon" href="assets/logo.png">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{ display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+  .gate{
+    max-width:560px; width:100%;
+    text-align:center;
+    animation:fadeIn 1s ease both;
+  }
+  .gate img.logo{
+    width:170px; height:170px; border-radius:50%; margin:0 auto 22px;
+    box-shadow:0 0 0 1px rgba(212,175,55,0.5), 0 0 40px rgba(212,175,55,0.25);
+  }
+  .gate h1{
+    font-family:var(--serif); font-size:clamp(1.7rem,5vw,2.4rem);
+    color:var(--gold-pale); font-weight:700;
+  }
+  .gate .hi-line{
+    font-family:var(--display); font-style:italic; color:var(--silver);
+    font-size:clamp(1.1rem,3.5vw,1.4rem); margin-top:4px;
+  }
+  .gate-card{
+    margin-top:34px; padding:30px 26px;
+  }
+  .gate-card p.prompt{
+    color:var(--text); font-size:1.05rem; margin-bottom:4px;
+  }
+  .gate-card p.prompt.hi{ color:var(--text-dim); margin-bottom:24px; font-family:var(--body);}
+  .lang-options{
+    display:flex; gap:16px; flex-wrap:wrap; justify-content:center;
+  }
+  .lang-btn{
+    flex:1 1 200px;
+    padding:20px;
+    border-radius:6px;
+    border:1px solid var(--card-edge);
+    background:linear-gradient(180deg, rgba(212,175,55,0.06), transparent);
+    cursor:pointer;
+    transition:all 0.25s ease;
+    color:var(--text);
+  }
+  .lang-btn:hover, .lang-btn:focus-visible{
+    border-color:var(--gold); box-shadow:var(--shadow-gold); transform:translateY(-3px);
+  }
+  .lang-btn .lbl-main{
+    font-family:var(--serif); font-size:1.3rem; color:var(--gold-bright); font-weight:700; display:block;
+  }
+  .lang-btn .lbl-sub{
+    font-size:0.85rem; color:var(--text-dim); display:block; margin-top:4px;
+  }
+  .gate-footer{
+    margin-top:30px; font-size:0.8rem; color:var(--card-edge);
+  }
+</style>
+</head>
+<body>
+<div class="bg-logo"></div>
+<div class="grain"></div>
+
+<div class="gate">
+  <img src="assets/logo.png" alt="Sai Jewelers logo" class="logo">
+  <h1>Sai Jewelers</h1>
+  <div class="hi-line">साईं ज्वैलर्स</div>
+
+  <div class="card gate-card">
+    <p class="prompt">Please select your preferred language to continue</p>
+    <p class="prompt hi">जारी रखने के लिए कृपया अपनी भाषा चुनें</p>
+
+    <div class="lang-options">
+      <button class="lang-btn" onclick="chooseLang('en')">
+        <span class="lbl-main">English</span>
+        <span class="lbl-sub">Continue in English</span>
+      </button>
+      <button class="lang-btn" onclick="chooseLang('hi')">
+        <span class="lbl-main">हिंदी</span>
+        <span class="lbl-sub">हिंदी में जारी रखें</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="gate-footer">Sai Jewelers · Sikar, Rajasthan</div>
+</div>
+
+<script>
+  function chooseLang(lang){
+    try{ localStorage.setItem('sj_lang', lang); }catch(e){}
+    window.location.href = 'home.html?lang=' + lang;
+  }
+</script>
+</body>
+</html>
